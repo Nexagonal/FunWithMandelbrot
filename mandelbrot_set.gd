@@ -126,17 +126,17 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	shader_material.set_shader_parameter("zoom", cur_zoom)
 	shader_material.set_shader_parameter("center", cur_center)
-	cur_zoom = lerpf(cur_zoom, zoom, delta * 10)
-	cur_center = lerp(cur_center, center, delta * 10)
-	x_mult_value = lerpf(x_mult_value, x_mult.value, delta * 10)
-	y_mult_value = lerpf(y_mult_value, y_mult.value, delta * 10)
-	threshold_value = lerpf(threshold_value, threshold.value, delta * 10)
-	strange_mult_value = lerpf(strange_mult_value, strange_mult.value, delta * 10)
-	a_var_value = lerpf(a_var_value, a_var.value, delta * 10)
-	b_var_value = lerpf(b_var_value, b_var.value, delta * 10)
-	c_var_value = lerpf(c_var_value, c_var.value, delta * 10)
-	d_var_value = lerpf(d_var_value, d_var.value, delta * 10)
-	e_var_value = lerpf(e_var_value, e_var.value, delta * 10)
+	cur_zoom = lerpf(cur_zoom, zoom, delta * 5)
+	cur_center = lerp(cur_center, center, delta * 5)
+	x_mult_value = lerpf(x_mult_value, x_mult.value, delta * 5)
+	y_mult_value = lerpf(y_mult_value, y_mult.value, delta * 5)
+	threshold_value = lerpf(threshold_value, threshold.value, delta * 5)
+	strange_mult_value = lerpf(strange_mult_value, strange_mult.value, delta * 5)
+	a_var_value = lerpf(a_var_value, a_var.value, delta * 5)
+	b_var_value = lerpf(b_var_value, b_var.value, delta * 5)
+	c_var_value = lerpf(c_var_value, c_var.value, delta * 5)
+	d_var_value = lerpf(d_var_value, d_var.value, delta * 5)
+	e_var_value = lerpf(e_var_value, e_var.value, delta * 5)
 	
 ## Zooms in or out.
 ##
