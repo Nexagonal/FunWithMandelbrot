@@ -1,0 +1,230 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2xqp4bhbl4ib"]
+
+[ext_resource type="Shader" path="res://mandelbrot_set.gdshader" id="1_0xm2m"]
+[ext_resource type="Script" path="res://mandelbrot_set.gd" id="1_ig7tw"]
+[ext_resource type="Script" path="res://cool_slider.gd" id="3_swnlb"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1bvp3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+shader = ExtResource("1_0xm2m")
+shader_parameter/max_steps = 5000
+shader_parameter/center = Vector2(0, 0)
+shader_parameter/zoom = 1.0
+shader_parameter/x_mult = 1.0
+shader_parameter/y_mult = 1.0
+shader_parameter/threshold = 4.0
+shader_parameter/strange_mult = 1.0
+shader_parameter/a_var = 0.0
+shader_parameter/b_var = 0.0
+shader_parameter/c_var = 1.0
+shader_parameter/d_var = 0.0
+shader_parameter/e_var = 1.0
+shader_parameter/palette = SubResource("GradientTexture1D_1bvp3")
+
+[sub_resource type="Gradient" id="Gradient_w7v28"]
+interpolation_color_space = 1
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0oe6w"]
+gradient = SubResource("Gradient_w7v28")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u37xq"]
+
+[node name="Main" type="Node"]
+
+[node name="MandelbrotSet" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_h2yge")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_ig7tw")
+
+[node name="GradientSprite" type="Sprite2D" parent="MandelbrotSet"]
+texture = SubResource("GradientTexture1D_0oe6w")
+
+[node name="Control" type="PanelContainer" parent="."]
+offset_right = 247.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u37xq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="x_mult" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/x_mult"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/x_mult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -2.0
+max_value = 8.0
+step = 0.01
+value = 1.0
+
+[node name="y_mult" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/y_mult"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/y_mult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -2.0
+max_value = 8.0
+step = 0.01
+value = 1.0
+
+[node name="threshold" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/threshold"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/threshold"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+step = 0.01
+value = 4.0
+
+[node name="strange_mult" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/strange_mult"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/strange_mult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+min_value = -2.0
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="a_var" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/a_var"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/a_var"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+min_value = -10.0
+max_value = 10.0
+step = 0.01
+
+[node name="b_var" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/b_var"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/b_var"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+min_value = -10.0
+max_value = 10.0
+step = 0.01
+
+[node name="c_var" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/c_var"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/c_var"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+min_value = -2.0
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="d_var" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/d_var"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/d_var"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+min_value = -2.0
+max_value = 2.0
+step = 0.01
+
+[node name="e_var" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_swnlb")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/e_var"]
+layout_mode = 2
+text = "↻"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/e_var"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+min_value = -4.0
+max_value = 4.0
+step = 0.01
+value = 1.0
+
+[connection signal="mouse_entered" from="Control" to="MandelbrotSet" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="MandelbrotSet" method="_on_control_mouse_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/x_mult/Button" to="Control/VBoxContainer/x_mult" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/y_mult/Button" to="Control/VBoxContainer/y_mult" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/threshold/Button" to="Control/VBoxContainer/threshold" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/strange_mult/Button" to="Control/VBoxContainer/strange_mult" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/a_var/Button" to="Control/VBoxContainer/a_var" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/b_var/Button" to="Control/VBoxContainer/b_var" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/c_var/Button" to="Control/VBoxContainer/c_var" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/d_var/Button" to="Control/VBoxContainer/d_var" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/e_var/Button" to="Control/VBoxContainer/e_var" method="_on_button_pressed"]
