@@ -77,7 +77,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 	if Input.is_action_just_pressed("wheel_up") and !disable_input:
 		_zoom(fast_zoom_factor)
@@ -93,6 +93,9 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_pressed("right_click") and !disable_input:
 		_zoom(slow_zoom_factor)
+	
+	if Input.is_action_pressed("fullscreen"):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	
 	shader_material.set_shader_parameter("x_mult", x_mult_value)
 	shader_material.set_shader_parameter("y_mult", y_mult_value)

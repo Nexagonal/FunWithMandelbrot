@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" path="res://mandelbrot_set.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" path="res://mandelbrot_set.gd" id="1_ig7tw"]
+[ext_resource type="Gradient" uid="uid://dj1qdtpe6butw" path="res://gradient.tres" id="3_mf1rn"]
 [ext_resource type="Script" path="res://cool_slider.gd" id="3_swnlb"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1bvp3"]
@@ -22,11 +23,8 @@ shader_parameter/d_var = 0.0
 shader_parameter/e_var = 1.0
 shader_parameter/palette = SubResource("GradientTexture1D_1bvp3")
 
-[sub_resource type="Gradient" id="Gradient_w7v28"]
-interpolation_color_space = 1
-
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_0oe6w"]
-gradient = SubResource("Gradient_w7v28")
+gradient = ExtResource("3_mf1rn")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u37xq"]
 

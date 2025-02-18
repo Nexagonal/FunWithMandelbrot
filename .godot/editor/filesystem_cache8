@@ -1,10 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1739865239
+::res://::1739866504
 control.gd::GDScript::-1::1739862496::0::1::::<>PanelContainer<>::
 cool_slider.gd::GDScript::-1::1739864443::0::1::::CoolSlider<>HBoxContainer<>::
+export_presets.cfg::TextFile::-1::1739866058::0::1::::<><>::
 gradient.tres::Gradient::7845613316032077092::1739861263::0::1::::<><>::
 icon.svg::CompressedTexture2D::3231617408961227754::1739857385::1739865242::1::::<><>::
-main.tscn::PackedScene::4329999934097996173::1739865219::0::1::::<><>::res://mandelbrot_set.gdshader<>res://mandelbrot_set.gd<>res://cool_slider.gd
-mandelbrot_set.gd::GDScript::-1::1739864393::0::1::::<>ColorRect<>::
+main.tscn::PackedScene::4329999934097996173::1739866336::0::1::::<><>::res://mandelbrot_set.gdshader<>res://mandelbrot_set.gd<>res://cool_slider.gd
+mandelbrot_set.gd::GDScript::-1::1739865395::0::1::::<>ColorRect<>::
 mandelbrot_set.gdshader::Shader::-1::1739865228::0::1::::<><>::
-README.md::TextFile::-1::1739864980::0::1::::<><>::
+README.md::TextFile::-1::1739865855::0::1::::<><>::
